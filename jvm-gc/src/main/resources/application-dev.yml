@@ -1,0 +1,45 @@
+server:
+      port: 8099  #配置端口
+      address : localhost
+      session-timeout: 30
+      tomcat.max-threads: 0
+      tomcat.uri-encoding: UTF-8
+
+spring:
+        application:
+                      name: jvm-gc
+# LOGGING
+logging:
+        level:
+              root: INFO
+              org:
+                  springframework: INFO
+                  hibernate: INFO
+#        path: F:\\
+#        file: log.log
+              com:
+                  ibatis: INFO
+                  abin:
+                        lee:
+                            sharding:
+                                      dbtable:
+                                              api:
+                                                  mapper: INFO
+
+
+
+
+debug: false
+
+
+
+
+
+
+
+
+
+
+
+
+
