@@ -28,7 +28,7 @@ public class CmsAddListTest {
         try {
             CloseableHttpClient httpClient = HttpClientUtil.getHttpClient();
             List<NameValuePair> nvps = new ArrayList<NameValuePair>();
-            int id = 100;
+            int id = 100000;
             nvps.add(new BasicNameValuePair("param", id+""));
 
             HttpPost httpPost = new HttpPost(httpURL);

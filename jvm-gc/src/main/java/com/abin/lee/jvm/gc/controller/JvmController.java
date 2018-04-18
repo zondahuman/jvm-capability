@@ -22,8 +22,7 @@ public class JvmController {
 
 
     /**
-     * -server -Xms30m -Xmx30m -XX:NewSize=20m -XX:MaxNewSize=20m -XX:PermSize=10m -XX:MaxPermSize=10m -XX:-UseConcMarkSweepGC -XX:+UseCMSCompactAtFullCollection
-     -XX:CMSInitiatingOccupancyFraction=80 -XX:+CMSParallelRemarkEnabled -XX:SoftRefLRUPolicyMSPerMB=0
+     * -server -Xms30m -Xmx30m -XX:NewSize=20m -XX:MaxNewSize=20m -XX:PermSize=10m -XX:MaxPermSize=10m -XX:-UseConcMarkSweepGC -XX:+UseCMSCompactAtFullCollection  -XX:CMSInitiatingOccupancyFraction=80 -XX:+PrintGCTimeStamps -XX:+PrintGCDetails
      * @param param
      * @return
      */
