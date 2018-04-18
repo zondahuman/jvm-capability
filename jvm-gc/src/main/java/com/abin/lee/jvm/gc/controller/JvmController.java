@@ -27,12 +27,25 @@ public class JvmController {
      * @param param
      * @return
      */
-    @RequestMapping(value = "/cms")
+    @RequestMapping(value = "/cmsAddList")
     @ResponseBody
-    public String insert(Integer param) {
+    public String cmsAddList(Integer param) {
         String result = "FAILURE";
         try {
             this.memoryOverflowPerformance.addList(param);
+            result = "SUCCESS";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @RequestMapping(value = "/cmsRemoveList")
+    @ResponseBody
+    public String cmsRemoveList(Integer param) {
+        String result = "FAILURE";
+        try {
+            this.memoryOverflowPerformance.removeList();
             result = "SUCCESS";
         } catch (Exception e) {
             e.printStackTrace();

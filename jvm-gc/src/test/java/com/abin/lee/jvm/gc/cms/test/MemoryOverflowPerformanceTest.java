@@ -22,10 +22,10 @@ import java.util.List;
  */
 public class MemoryOverflowPerformanceTest {
 
-    private static final String httpURL = "http://localhost:8099/jvm/cms";
+    private static final String httpURL = "http://localhost:8099/jvm/cmsAddList";
 
     @Test
-    public void testOrderAdd() {
+    public void testMemoryOverflowPerformance() {
         try {
             CloseableHttpClient httpClient = HttpClientUtil.getHttpClient();
             List<NameValuePair> nvps = new ArrayList<NameValuePair>();

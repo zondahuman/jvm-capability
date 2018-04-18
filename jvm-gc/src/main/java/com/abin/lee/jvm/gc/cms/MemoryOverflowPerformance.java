@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by abin on 2018/4/18 20:59.
@@ -45,6 +46,19 @@ public class MemoryOverflowPerformance {
             list.add(j);
         }
         log.info("param="+param + " ,--end---currentTime=" + DateUtil.getYMDHMSTime());
+    }
+    public void removeList() throws InterruptedException {
+        log.info("removeList=" + " ,--start---currentTime=" + DateUtil.getYMDHMSTime());
+        while(true){
+            AtomicInteger increase = new AtomicInteger(0);
+            for(Integer temp : list){
+                if(increase.get()>100)
+                    Thread.sleep(1000);
+                list.remove(temp);
+                increase.getAndIncrement();
+            }
+        }
+//        log.info("removeList=" + " ,--end---currentTime=" + DateUtil.getYMDHMSTime());
     }
 
 }
