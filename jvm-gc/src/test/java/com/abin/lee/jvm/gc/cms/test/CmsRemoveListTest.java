@@ -24,7 +24,7 @@ public class CmsRemoveListTest {
     private static final String httpURL = "http://localhost:8099/jvm/cmsRemoveList";
 
     @Test
-    public void testOrderAdd() {
+    public void testCmsRemoveList() {
         try {
             CloseableHttpClient httpClient = HttpClientUtil.getHttpClient();
             List<NameValuePair> nvps = new ArrayList<NameValuePair>();

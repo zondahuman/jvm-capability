@@ -2,10 +2,12 @@ package com.abin.lee.jvm.gc.cms;
 
 import com.abin.lee.jvm.common.util.DateUtil;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -18,8 +20,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Slf4j
 @Component
 public class MemoryOverflowPerformance {
-    public static Map<String, String> map = new HashMap<String, String>();
-    public static List<Integer> list = Lists.newArrayList();
+    public static Map<String, String> map = Maps.newConcurrentMap();
+    public static List<Integer> list = Lists.newCopyOnWriteArrayList();
 
     public static void main(String[] args) throws InterruptedException {
         Thread.sleep(10000);
@@ -51,10 +53,11 @@ public class MemoryOverflowPerformance {
         log.info("removeList=" + " ,--start---currentTime=" + DateUtil.getYMDHMSTime());
         while(true){
             AtomicInteger increase = new AtomicInteger(0);
-            for(Integer temp : list){
+            for(Iterator<Integer> iterator=list.iterator();iterator.hasNext();){
+                Integer temp = iterator.next();
                 if(increase.get()>100)
                     Thread.sleep(1000);
-                list.remove(temp);
+                iterator.remove();
                 increase.getAndIncrement();
             }
         }
