@@ -54,14 +54,17 @@ public class MemoryOverflowPerformance {
         while(true){
             AtomicInteger increase = new AtomicInteger(0);
             for(Iterator<Integer> iterator=list.iterator();iterator.hasNext();){
-                Integer temp = iterator.next();
+//                Integer temp = iterator.next();
+                iterator.remove();
                 if(increase.get()>100)
                     Thread.sleep(1000);
-                iterator.remove();
                 increase.getAndIncrement();
             }
         }
 //        log.info("removeList=" + " ,--end---currentTime=" + DateUtil.getYMDHMSTime());
     }
+
+
+
 
 }
