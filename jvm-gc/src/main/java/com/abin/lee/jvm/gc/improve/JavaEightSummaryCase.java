@@ -13,11 +13,11 @@ import java.util.List;
  * http://jianshi-dlw.iteye.com/blog/1177146
  * -Xms30m -Xmx30m -Xmn10m -XX:+UseParallelGC
  */
-public class SummaryCase {
+public class JavaEightSummaryCase {
 
     public static void main(String[] args) throws Exception {
         List<Object> caches = new ArrayList<Object>();
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 4; i++) {
             caches.add(new byte[1024 * 1024 * 1]);
 //            caches.add(new byte[1024 * 1024 * 3]);
         }
@@ -28,9 +28,9 @@ public class SummaryCase {
 //        caches.clear();
 //        getJvmMemory();
         System.out.println("-----------------------add-------list----two  ..... before ");
-//        for (int i = 0; i < 2; i++) {
-//            caches.add(new byte[1024 * 1024 * 1]);
-//        }
+        for (int i = 0; i < 2; i++) {
+            caches.add(new byte[1024 * 1024 * 1]);
+        }
         System.out.println("-----------------------add-------list----two  ..... after ");
 //        getJvmMemory();
         Thread.sleep(1000000);
